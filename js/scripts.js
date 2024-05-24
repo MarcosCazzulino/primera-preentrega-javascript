@@ -1,27 +1,60 @@
+
+let nombreCliente
 let palabraClave
+
 do{
-    palabraClave = prompt("Ingresa una palabra clave para retirar tu pedido.");
-    if(palabraClave !== null){
-        if (palabraClave.trim() !== ""){
-            if (!isNaN(palabraClave)){
-                alert("Tu palabra clave no puede ser un número.")
-            }else if (palabraClave.length > 15){
-                alert("Tu palabra clave debe tener menos de 15 caracteres.")
-            } else if (palabraClave.length < 3){
-                alert("Tu palabra clave debe tener más de 3 caracteres");
+    nombreCliente = prompt("¡Bienvenido/a a HolyCrepe!\nIngrese su nombre, por favor.")
+    if(nombreCliente !== null){
+        if (nombreCliente.trim() !== ""){
+            if (!isNaN(nombreCliente)){
+                alert("Tu nombre no puede ser un número.")
+            }else if (nombreCliente.length > 15){
+                alert("Tu nombre debe tener menos de 15 caracteres.")
+            } else if (nombreCliente.length < 3){
+                alert("Tu nombre debe tener más de 3 caracteres");
             } else{
-                alert("Tu palabra clave es:" + " " + palabraClave + "\n¡No la olvides!");
-                console.log(palabraClave);
+                alert("¡Hola," + " " + nombreCliente + "!\n¡Que tengas un gran día!");
                 break;
             }
         }else {
-            alert("Necesitas una palabra clave.");
+            alert("Necesitas poner tu nombre.");
         }
     } else {
-        alert("Necesitas una palabra clave.")
+        alert("Necesitas poner tu nombre.")
     }
-} while (palabraClave === "" || !isNaN(palabraClave) || (palabraClave.length < 3 || palabraClave.length > 15))
+} while (nombreCliente === "" || !isNaN(nombreCliente) || (nombreCliente.length < 3 || nombreCliente.length > 15))  
+    
+    do{
+        palabraClave = prompt("Ingresa una palabra clave para retirar tu pedido.");
+        if(palabraClave !== null){
+            if (palabraClave.trim() !== ""){
+                if (!isNaN(palabraClave)){
+                    alert("Tu palabra clave no puede ser un número.")
+                }else if (palabraClave.length > 15){
+                    alert("Tu palabra clave debe tener menos de 15 caracteres.")
+                } else if (palabraClave.length < 3){
+                    alert("Tu palabra clave debe tener más de 3 caracteres");
+                } else{
+                    alert("Tu palabra clave es:" + " " + palabraClave + "\n¡No la olvides!");
+                    break;
+                }
+            }else {
+                alert("Necesitas una palabra clave.");
+            }
+        } else {
+            alert("Necesitas una palabra clave.")
+        }
+    } while (palabraClave === "" || !isNaN(palabraClave) || (palabraClave.length < 3 || palabraClave.length > 15))
 
+let ticket = [
+    {
+        nombre: "Usuario1",
+        keyword: "Palabra clave" 
+    }
+]
+let ticketNuevo = {nombre: nombreCliente, keyword: palabraClave};
+ticket.push(ticketNuevo);
+console.log(ticket);
 
 let opcion
 const bananoRey = 2.50;
@@ -67,8 +100,12 @@ while (!salir){
                         break;
                     case "5":
                         salir = true
-                        alert("El total a pagar es: $" + total.toFixed(2));
-                        break
+                        let mensaje = '¡Muchas gracias por tu compra! Aquí tienes tu ticket:\nCafetería\n"Holy Crepe"'
+                        ticket.slice(0, -1).forEach(() => {
+                            mensaje += `\nPedido a nombre de: ${ticketNuevo.nombre}\nPalabra clave: ${ticketNuevo.keyword}\nEl total a pagar es: $` + total.toFixed(2);;
+                        })
+                        alert(mensaje)
+                        break;
                 }
                 if (opcion !== "4" && opcion !== "5"){
                     if (opcion !== null && opcion !== ""){
@@ -93,7 +130,11 @@ while (!salir){
                                     break;
                                 case "5":
                                     salir = true
-                                    alert("El total a pagar es: $" + total.toFixed(2));
+                                    let mensaje = '¡Muchas gracias por tu compra! Aquí tienes tu ticket:\nCafetería\n"Holy Crepe"'
+                                    ticket.slice(0, -1).forEach(() => {
+                                        mensaje += `\nPedido a nombre de: ${ticketNuevo.nombre}\nPalabra clave: ${ticketNuevo.keyword}\nEl total a pagar es: $` + total.toFixed(2);;
+                                    })
+                                    alert(mensaje)
                                     break;
                             }
                         }
@@ -124,7 +165,11 @@ while (!salir){
                         break;
                     case "5":
                         salir = true
-                        alert("El total a pagar es: $" + total.toFixed(2));
+                        let mensaje = '¡Muchas gracias por tu compra! Aquí tienes tu ticket:\nCafetería\n"Holy Crepe"'
+                        ticket.slice(0, -1).forEach(() => {
+                            mensaje += `\nPedido a nombre de: ${ticketNuevo.nombre}\nPalabra clave: ${ticketNuevo.keyword}\nEl total a pagar es: $` + total.toFixed(2);;
+                        })
+                        alert(mensaje)
                         break
                 }
                 if (opcion !== "4" && opcion !== "5"){
@@ -150,7 +195,11 @@ while (!salir){
                                     break;
                                 case "5":
                                     salir = true
-                                    alert("El total a pagar es: $" + total.toFixed(2));
+                                    let mensaje = '¡Muchas gracias por tu compra! Aquí tienes tu ticket:\nCafetería\n"Holy Crepe"'
+                                    ticket.slice(0, -1).forEach(() => {
+                                        mensaje += `\nPedido a nombre de: ${ticketNuevo.nombre}\nPalabra clave: ${ticketNuevo.keyword}\nEl total a pagar es: $` + total.toFixed(2);;
+                                    })
+                                    alert(mensaje)
                                     break
                             }
                         }
@@ -181,7 +230,11 @@ while (!salir){
                         break;
                     case "5":
                         salir = true
-                        alert("El total a pagar es: $" + total.toFixed(2));
+                        let mensaje = '¡Muchas gracias por tu compra! Aquí tienes tu ticket:\nCafetería\n"Holy Crepe"'
+                        ticket.slice(0, -1).forEach(() => {
+                            mensaje += `\nPedido a nombre de: ${ticketNuevo.nombre}\nPalabra clave: ${ticketNuevo.keyword}\nEl total a pagar es: $` + total.toFixed(2);;
+                        })
+                        alert(mensaje)
                         break
                 }
                 if (opcion !== "4" && opcion !== "5"){
@@ -207,7 +260,11 @@ while (!salir){
                                     break;
                                 case "5":
                                     salir = true
-                                    alert("El total a pagar es: $" + total.toFixed(2));
+                                    let mensaje = '¡Muchas gracias por tu compra! Aquí tienes tu ticket:\nCafetería\n"Holy Crepe"'
+                                    ticket.slice(0, -1).forEach(() => {
+                                        mensaje += `\nPedido a nombre de: ${ticketNuevo.nombre}\nPalabra clave: ${ticketNuevo.keyword}\nEl total a pagar es: $` + total.toFixed(2);;
+                                    })
+                                    alert(mensaje)
                                     break
                             }
                         }
@@ -238,7 +295,11 @@ while (!salir){
                         break;
                     case "5":
                         salir = true
-                        alert("El total a pagar es: $" + total.toFixed(2));
+                        let mensaje = '¡Muchas gracias por tu compra! Aquí tienes tu ticket:\nCafetería\n"Holy Crepe"'
+                        ticket.slice(0, -1).forEach(() => {
+                            mensaje += `\nPedido a nombre de: ${ticketNuevo.nombre}\nPalabra clave: ${ticketNuevo.keyword}\nEl total a pagar es: $` + total.toFixed(2);;
+                        })
+                        alert(mensaje)
                         break
                 }
                 if (opcion !== "4" && opcion !== "5"){
@@ -264,7 +325,11 @@ while (!salir){
                                     break;
                                 case "5":
                                     salir = true
-                                    alert("El total a pagar es: $" + total.toFixed(2));
+                                    let mensaje = '¡Muchas gracias por tu compra! Aquí tienes tu ticket:\nCafetería\n"Holy Crepe"'
+                                    ticket.slice(0, -1).forEach(() => {
+                                        mensaje += `\nPedido a nombre de: ${ticketNuevo.nombre}\nPalabra clave: ${ticketNuevo.keyword}\nEl total a pagar es: $` + total.toFixed(2);;
+                                    })
+                                    alert(mensaje)
                                     break
                             }
                         }
@@ -280,7 +345,11 @@ while (!salir){
         case 5:
             if (menu === 5){
                 salir = true
-                alert("El total a pagar es: $" + total.toFixed(2));
+                let mensaje = '¡Muchas gracias por tu compra! Aquí tienes tu ticket:\nCafetería\n"Holy Crepe"'
+                ticket.slice(0, -1).forEach(() => {
+                    mensaje += `\nPedido a nombre de: ${ticketNuevo.nombre}\nPalabra clave: ${ticketNuevo.keyword}\nEl total a pagar es: $` + total.toFixed(2);;
+                })
+                alert(mensaje)
                 break
             }
         default:
